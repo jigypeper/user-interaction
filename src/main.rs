@@ -1,17 +1,26 @@
 use std::io;
 
-fn main() {
-    println!("Whats your name?");
+fn ask_question(question: &str) -> String {
+    println!("{question}");
     let mut input: String = String::new();
-    let mut input_age: String = String::new();
+
     io::stdin()
         .read_line(&mut input)
-        .expect("Failed to read line!");
-    let name = input.trim();
-    println!("How old are you?");
-    io::stdin()
-        .read_line(&mut input_age)
-        .expect("Failed to read line!");
-    let age = input_age.trim();
-    println!("Hello {name}! You are {age} years old");
+        .expect("Oops! Looks like there be a sea monster in the I/O waters.");
+
+    input.trim().to_string()
+}
+
+fn main() {
+    // A warm welcome
+    println!("🌟 Welcome to the Rustic Adventure! 🚀");
+
+    // Asking for the adventurer's name
+    let name = ask_question("What do they call ye, brave coder?");
+
+    // Inquiring about the adventurer's age
+    let age = ask_question("How many orbits around the sun have ye completed?");
+
+    // Unveiling the personalized greeting
+    println!("🎉 Ahoy, {name}! Ready to set sail into the Rustic seas\nof coding at the youthful age of {age}? 🚢⚓");
 }
