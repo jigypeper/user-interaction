@@ -69,3 +69,47 @@ fn ask_question(question: &str) -> String {
     input.trim().to_string()
 }
 ```
+### Finishing up
+
+Lets makes this a little funner. Using our new function, we can now ask as many questions as we like.
+
+```rust
+use std::io;
+
+fn ask_question(question: &str) -> String {
+    println!("{question}");
+    let mut input: String = String::new();
+
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Oops! Looks like there be a sea monster in the I/O waters.");
+
+    input.trim().to_string()
+}
+
+fn main() {
+    // A warm welcome
+    println!("🌟 Welcome to the Rustic Adventure! 🚀");
+
+    // Asking for the adventurer's name
+    let name = ask_question("What do they call ye, brave coder?");
+
+    // Inquiring about the adventurer's age
+    let age = ask_question("How many orbits around the sun have ye completed?");
+
+    // Unveiling the personalized greeting
+    println!("🎉 Ahoy, {name}! Ready to set sail into the Rustic seas\nof coding at the youthful age of {age}? 🚢⚓");
+}
+```
+Our main function now looks quite similar to how it might appear in Python.
+As we conclude this journey through the Rust landscape, I hope you've found 
+the traversal as enlightening and enjoyable as I have. Our foray into console 
+application development has been filled with challenges and discoveries, 
+highlighting the robustness and intricacy of Rust.
+
+May this post spark your curiosity and inspire you to delve deeper into the realms 
+of coding. I encourage you to take these insights and build upon them, forging your 
+path in the vast world of technology.
+
+Until our paths cross again,
+Ahmed.
